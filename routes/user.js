@@ -1,5 +1,5 @@
 const express = require('express');
-const userController = require('../controller/users')
+const userController = require('../controllers/user')
 const router = express.Router();
 
 router.get('/notes', userController.getAllNotes);

@@ -1,3 +1,8 @@
+exports.getAllNotes = (req, res, next) => {res.render('notes/notes')}
+
+
+/*
+
 exports.getAllNotes = (req, res, next) => {
 
     res.status(200).json({
@@ -38,3 +43,5 @@ exports.getAllNotes = (req, res, next) => {
         ]
     });
 };
+
+*/
