@@ -1,14 +1,30 @@
 const express = require('express');
 const dotenv = require('dotenv');
-const hbs = require('express-handlebars');
-dotenv.config({path: './config/config.env'});
+const path = require('path');
+const exphbs = require('express-handlebars');
+const mongoose = require('mongoose');
 
+//const logger = require('./middleware/logger');
+const morgan = require('morgan');
 const app = express();
-const PORT = process.env.PORT || 3000;
 
+// Importing and setting up config
+dotenv.config({path: './config/config.env'});
+const PORT = process.env.PORT;
+
+
+// For parsing request bodies
+// Describe the characteristics of the engine
 app.use(express.json());
 
-app.engine('hbs', hbs({
+if (process.env.NODE_ENV==='development'){
+    app.use(morgan('dev'));
+}
+
+app.use(logger);
+
+// Set up the template engine
+app.engine('hbs', exphbs({
     defaultLayout: 'layout',
     extname: '.hbs',
     runtimeOptions: {

@@ -1,4 +1,9 @@
-exports.getAllNotes = (req, res, next) => {res.render('notes/notes')}
+exports.getAllNotes = (req, res, next) => {
+    res.render('notes/notes.hbs')}
+       
+/*
+res.render('notes/notes.hbs', {id:1});
+*/
 
 
 /*
