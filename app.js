@@ -2,7 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const path = require('path');
 const exphbs = require('express-handlebars');
-const mongoose = require('mongoose');
+const connectionToDb = require('.config/databaseconfig');
 
 //const logger = require('./middleware/logger');
 const morgan = require('morgan');
@@ -12,6 +12,8 @@ const app = express();
 dotenv.config({path: './config/config.env'});
 const PORT = process.env.PORT;
 
+//invoke the function
+connectionToDb();
 
 // For parsing request bodies
 // Describe the characteristics of the engine
